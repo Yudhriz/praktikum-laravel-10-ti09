@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ForminputController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,7 @@ Route::get('/health-check', function () {
 
 Route::get('/form', [FormController::class, 'index']);
 Route::post('/hasil', [FormController::class, 'hasil']);
+
+Route::get('/formp9', [ForminputController::class, 'index']);
+Route::get('/formp9', [ForminputController::class, 'array']);
+Route::post('/result', [ForminputController::class, 'hasil']);
