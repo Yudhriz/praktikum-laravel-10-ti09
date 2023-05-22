@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +30,17 @@ Route::get('/hallo2', function () {
     return view('hallo.halloworld');
 });
 
-Route::get('/kabar', function(){
+Route::get('/kabar', function () {
     return view('kondisi');
 });
 
-Route::get('/nilai', function(){
+Route::get('/nilai', function () {
     return view('nilai');
 });
 
-Route::get('/health-check', function(){
+Route::get('/health-check', function () {
     return view('health-check/form');
 });
 
+Route::get('/form', [FormController::class, 'index']);
+Route::post('/hasil', [FormController::class, 'hasil']);
