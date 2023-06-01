@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ForminputController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +52,14 @@ Route::post('/hasil', [FormController::class, 'hasil']);
 Route::get('/formp9', [ForminputController::class, 'index']);
 Route::get('/formp9', [ForminputController::class, 'array']);
 Route::post('/result', [ForminputController::class, 'hasil']);
+
+// Route::prefix('admin')->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//     Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+// });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
