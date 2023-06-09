@@ -10,7 +10,7 @@ use App\Http\Models\Pesanan;
 use Illuminate\Support\Facades\DB;
 
 
-class ProdukController extends Controller
+class KategoriProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,14 +19,14 @@ class ProdukController extends Controller
     {
         // $kategori_produk = KategoriProduk::all();
 
-        $produk = DB::table('produk')
-            ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk_id')
-            ->select('produk.*', 'kategori_produk.nama as nama_kategori')
-            ->get();
+        // $produk = DB::table('produk')
+        //     ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk_id')
+        //     ->select('produk.*', 'kategori_produk.nama as nama_kategori')
+        //     ->get();
         $kategori_produk = DB::table('kategori_produk')
-            ->select('* from', 'kategori_produk')
+            ->select('kategori_produk.*')
             ->get();
-        return view('admin.produk.produk', compact('produk'));
+        return view('admin.kategori_produk.kategori_produk', compact('kategori_produk'));
     }
 
     /**
