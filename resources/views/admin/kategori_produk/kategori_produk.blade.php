@@ -16,27 +16,21 @@
     <div class="card mb-4">
         <div class="card-header">
             <!-- <i class="fas fa-table me-1"></i> -->
-            <a class="btn btn-success" href="{{ url('create_produk') }}">Create Produk</a>
+            <a class="btn btn-success" href="{{ url('create_kategori_produk') }}">Create Kategori Produk</a>
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
                         <th>Nama</th>
-                        <th>Harga Jual</th>
-                        <th>Qty</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
                         <th>Nama</th>
-                        <th>Harga Jual</th>
-                        <th>Qty</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -44,20 +38,17 @@
                     @php
                         $no = 1;
                     @endphp
-                    @foreach ($produk as $p)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $p->kode }}</td>
-                            <td>{{ $p->nama }}</td>
-                            <td>{{ $p->harga_jual }}</td>
-                            <td>{{ $p->stok }}</td>
-                            <td>
-                                <a class="btn btn-primary" href="">View</a>
-                                <a class="btn btn-primary" href="">Edit</a>
-                                <a class="btn btn-primary" href=""
-                                    onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
-                            </td>
-                        </tr>
+                    @foreach ($kategori_produk as $k)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $k->nama }}</td>
+                        <td>
+                            <a class="btn btn-primary" href="">View</a>
+                            <a class="btn btn-primary" href="">Edit</a>
+                            <a class="btn btn-primary" href=""
+                                onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

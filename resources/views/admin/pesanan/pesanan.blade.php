@@ -16,27 +16,27 @@
     <div class="card mb-4">
         <div class="card-header">
             <!-- <i class="fas fa-table me-1"></i> -->
-            <a class="btn btn-success" href="{{ url('create_produk') }}">Create Produk</a>
+            <a class="btn btn-success" href="{{ url('create_pesanan') }}">Create Pesanan</a>
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
                         <th>Nama</th>
-                        <th>Harga Jual</th>
-                        <th>Qty</th>
+                        <th>Alamat</th>
+                        <th>No HP</th>
+                        <th>Email</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
                         <th>Nama</th>
-                        <th>Harga Jual</th>
-                        <th>Qty</th>
+                        <th>Alamat</th>
+                        <th>No HP</th>
+                        <th>Email</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -44,13 +44,13 @@
                     @php
                         $no = 1;
                     @endphp
-                    @foreach ($produk as $p)
+                    @foreach ($pesanan as $ps)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $p->kode }}</td>
-                            <td>{{ $p->nama }}</td>
-                            <td>{{ $p->harga_jual }}</td>
-                            <td>{{ $p->stok }}</td>
+                            <td>{{ $ps->nama_pemesan }}</td>
+                            <td>{{ $ps->alamat_pemesan }}</td>
+                            <td>{{ $ps->no_hp }}</td>
+                            <td>{{ $ps->email }}</td>
                             <td>
                                 <a class="btn btn-primary" href="">View</a>
                                 <a class="btn btn-primary" href="">Edit</a>
