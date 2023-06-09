@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ForminputController;
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\PesananController;
+
 use App\Http\Controllers\HomeController;
 
 /*
@@ -60,6 +64,8 @@ Route::post('/result', [ForminputController::class, 'hasil']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/kategori_produk', [KategoriProdukController::class, 'index'])->name('kategori_produk');
+Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
