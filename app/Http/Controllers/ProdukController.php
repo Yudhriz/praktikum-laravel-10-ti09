@@ -23,9 +23,6 @@ class ProdukController extends Controller
             ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk_id')
             ->select('produk.*', 'kategori_produk.nama as nama_kategori')
             ->get();
-        $kategori_produk = DB::table('kategori_produk')
-            ->select('* from', 'kategori_produk')
-            ->get();
         return view('admin.produk.produk', compact('produk'));
     }
 
