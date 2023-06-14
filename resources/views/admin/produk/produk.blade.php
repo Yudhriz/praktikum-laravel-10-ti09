@@ -16,9 +16,9 @@
     <div class="card mb-4">
         <div class="card-header">
             <!-- <i class="fas fa-table me-1"></i> -->
-            <a class="btn btn-success" href="{{ url('create_produk') }}">Create Produk</a>
+            <a class="btn btn-success" href="{{ url('produk/create') }}">Create Produk</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
@@ -26,7 +26,7 @@
                         <th>Kode</th>
                         <th>Nama</th>
                         <th>Harga Jual</th>
-                        <th>Qty</th>
+                        <th>Stok</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -36,7 +36,7 @@
                         <th>Kode</th>
                         <th>Nama</th>
                         <th>Harga Jual</th>
-                        <th>Qty</th>
+                        <th>Stok</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -52,10 +52,10 @@
                             <td>{{ $p->harga_jual }}</td>
                             <td>{{ $p->stok }}</td>
                             <td>
-                                <a class="btn btn-primary" href="">View</a>
-                                <a class="btn btn-primary" href="">Edit</a>
-                                <a class="btn btn-primary" href=""
-                                    onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
+                                <a class="btn btn-primary" href="{{ url('produk/view/' . $p->id) }}">View</a>
+                                <a class="btn btn-secondary" href="{{ url('produk/edit/' . $p->id) }}">Edit</a>
+                                <a class="btn btn-danger" href="{{ url('produk/delete/' . $p->id) }}"
+                                    onclick="confirmDelete(event)">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -64,3 +64,11 @@
         </div>
     </div>
 @endsection
+<script>
+    function confirmDelete(event) {
+        if (!confirm('Anda yakin Hapus Pelanggan ID {{ $p->id }} ?')) {
+            event.preventDefault(); // Prevents the default action of the link
+            return false;
+        }
+    }
+</script
