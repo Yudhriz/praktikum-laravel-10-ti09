@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Produk;
-use App\Http\Models\KategoriProduk;
-use App\Http\Models\Pesanan;
+use App\Models\Pesanan;
 // use DB;
 use Illuminate\Support\Facades\DB;
 
