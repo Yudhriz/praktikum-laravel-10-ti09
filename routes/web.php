@@ -64,6 +64,14 @@ Route::post('/result', [ForminputController::class, 'hasil']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+
+Route::get('/produk/create', [ProdukController::class, 'create']);
+Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk/store');
+Route::post('/produk/update', [ProdukController::class, 'update'])->name('produk/update');
+Route::get('/produk/view/{id}', [ProdukController::class, 'view'])->name('produk.view/{id}');
+Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk/edit/{id}');
+Route::get('/produk/delete/{id}', [ProdukController::class, 'delete'])->name('produk/delete/{id}');
+
 Route::get('/kategori_produk', [KategoriProdukController::class, 'index'])->name('kategori_produk');
 Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 
