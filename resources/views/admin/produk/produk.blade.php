@@ -66,7 +66,7 @@
 @endsection
 <script>
     function confirmDelete(event) {
-        if (!confirm('Anda yakin Hapus Pelanggan ID {{ $p->id }} ?')) {
+        if (!confirm('Anda yakin Hapus Produk ID {{ $p->id }} ?')) {
             event.preventDefault(); // Prevents the default action of the link
             return false;
         }
