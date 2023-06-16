@@ -71,4 +71,4 @@
             return false;
         }
     }
-</script
+</script>
