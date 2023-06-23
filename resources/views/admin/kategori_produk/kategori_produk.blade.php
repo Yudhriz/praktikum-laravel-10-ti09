@@ -16,7 +16,7 @@
     <div class="card mb-4">
         <div class="card-header">
             <!-- <i class="fas fa-table me-1"></i> -->
-            <a class="btn btn-success" href="{{ url('create_kategori_produk') }}">Create Kategori Produk</a>
+            <a class="btn btn-success" href="{{ url('kategori_produk/create') }}">Create Kategori Produk</a>
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
@@ -39,19 +39,27 @@
                         $no = 1;
                     @endphp
                     @foreach ($kategori_produk as $k)
-                    <tr>
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $k->nama }}</td>
-                        <td>
-                            <a class="btn btn-primary" href="">View</a>
-                            <a class="btn btn-primary" href="">Edit</a>
-                            <a class="btn btn-primary" href=""
-                                onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $k->nama }}</td>
+                            <td>
+                                <a class="btn btn-primary" href="{{ url('kategori_produk/view/' . $k->id) }}">View</a>
+                                <a class="btn btn-secondary" href="{{ url('kategori_produk/edit/' . $k->id) }}">Edit</a>
+                                <a class="btn btn-danger" href="{{ url('kategori_produk/delete/' . $k->id) }}"
+                                    onclick="confirmDelete(event)">Delete</a>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
+<script>
+    function confirmDelete(event) {
+        if (!confirm('Anda yakin Hapus Kategori Produk ID {{ $k->id }} ?')) {
+            event.preventDefault(); // Prevents the default action of the link
+            return false;
+        }
+    }
+</script>

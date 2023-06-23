@@ -16,7 +16,7 @@
     <div class="card mb-4">
         <div class="card-header">
             <!-- <i class="fas fa-table me-1"></i> -->
-            <a class="btn btn-success" href="{{ url('create_pesanan') }}">Create Pesanan</a>
+            <a class="btn btn-success" href="{{ url('pesanan/create') }}">Create Pesanan</a>
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
@@ -52,10 +52,10 @@
                             <td>{{ $ps->no_hp }}</td>
                             <td>{{ $ps->email }}</td>
                             <td>
-                                <a class="btn btn-primary" href="">View</a>
-                                <a class="btn btn-primary" href="">Edit</a>
-                                <a class="btn btn-primary" href=""
-                                    onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
+                                <a class="btn btn-primary" href="{{ url('pesanan/view/' . $ps->id) }}">View</a>
+                                <a class="btn btn-secondary" href="{{ url('pesanan/edit/' . $ps->id) }}">Edit</a>
+                                <a class="btn btn-danger" href="{{ url('pesanan/delete/' . $ps->id) }}"
+                                    onclick="confirmDelete(event)">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -64,3 +64,11 @@
         </div>
     </div>
 @endsection
+<script>
+    function confirmDelete(event) {
+        if (!confirm('Anda yakin Hapus Pesanan ID {{ $ps->id }} ?')) {
+            event.preventDefault(); // Prevents the default action of the link
+            return false;
+        }
+    }
+</script>
