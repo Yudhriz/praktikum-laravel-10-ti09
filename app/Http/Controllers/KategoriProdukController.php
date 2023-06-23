@@ -32,7 +32,10 @@ class KategoriProdukController extends Controller
      */
     public function create()
     {
-        //
+        $kategori_produk = DB::table('kategori_produk')->get();
+        $produk = DB::table('produk')->get();
+
+        return view('admin.kategori_produk.create', compact('produk', 'kategori_produk'));
     }
 
     /**
@@ -40,15 +43,19 @@ class KategoriProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori_produk = new KategoriProduk;
+        $kategori_produk->nama = $request->nama;
+        $kategori_produk->save();
+        return redirect('kategori_produk');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function view($id)
     {
-        //
+        $kategori_produk = KategoriProduk::find($id); //select * from kategori_produk where id=1
+        return view('admin.kategori_produk.view', ['kategori_produk' => $kategori_produk]);
     }
 
     /**
