@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        if (auth()->user()->role == 'admin' || auth()->user()->role == 'manager') {
+            return redirect('dashboard');
+        } else {
+            return redirect('/after_register');
+        }
     }
 }

@@ -37,6 +37,10 @@ Route::get('/hallo', function () {
     return view('hallo');
 });
 
+Route::get('after_register', function() {
+    return view('after_register');
+});
+
 Route::get('/hallo2', function () {
     return view('hallo.halloworld');
 });
@@ -64,7 +68,7 @@ Route::post('/result', [ForminputController::class, 'hasil']);
 //     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 //     Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
 // });
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'peran:admin-manager']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
 
